@@ -2,4 +2,5 @@ Collection of scripts related to the social network Foursquare
 
 File:			checkin.php
 Purpose:		Details an exploit providing a method of automating 
-				checkins with PHP.
+			checkins with PHP.
+			
