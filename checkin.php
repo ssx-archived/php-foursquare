@@ -1,21 +1,20 @@
 #!/usr/bin/php
 <?
 // Foursquare Checkin Automation
-// By Scott Wilcox (v0.1) http://dor.ky
+// By Scott Wilcox (v0.2) http://dor.ky
 //
-// I wrote this script a little while ago to automatically check
-// me in every day to a certain venue. This saved me time in 
-// actually getting in and out of my favourite cafe. There is a
-// perl version at http://compbio.cs.uic.edu/~mayank/4sq.html
+// This script will check you in via FourSquare at periodic intervals. This saved me
+// time in actually getting in and out of my favourite cafe. There is a perl version 
+// at http://compbio.cs.uic.edu/~mayank/4sq.html
 //
-// You need a set of co-ordinates that are close to the venue
-// as we need to send this in the header. We'll also need the
-// venue ID that we're checking into. You need to set this to a
-// latitude and longitude near to the venue
+// For this to work you'll be spoofing an iPhone in sending the
+// requests to the FourSquare API. You will need to know each venue
+// ID that you wish to check in to, along with a latitude and longitude
+// near to the venue. 
 //
 // Some minor settings, defaults are fine but fill in your username
 // (email address usually) and your password
-define("TIME_TO_SLEEP_MIN", 300);
+define("TIME_TO_SLEEP_MIN",100);
 define("TIME_TO_SLEEP_MAX",1200);
 define("USER_AGENT","Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+(KHTML, like Gecko) Version/3.0 Mobile/1C10 Safari/419.3");
 define("FOURSQUARE_USERNAME","");
@@ -42,6 +41,9 @@ $venues[] = array("2949365","53.014756","-2.175983"); // Hanley Park, Hanley
 // want to look like a robot
 shuffle($venues);
 
+// Now loop through each venue and post a checkin, then wait a little while until
+// we check into the next venue. By doing this, your checkins will look more
+// natural instead of automated
 foreach ($venues as $venue) {
 	// Now adjust the latitude and longitude slightly so that we are not
 	// checking in at the same lat/lng each time and send off the HTTP request to 
