@@ -1,5 +1,4 @@
-#!/usr/bin/php
-<?
+<?php
 // Foursquare Checkin Automation
 // By Scott Wilcox (v0.2) http://dor.ky
 //
@@ -14,7 +13,7 @@
 //
 // Some minor settings, defaults are fine but fill in your username
 // (email address usually) and your password
-define("TIME_TO_SLEEP_MIN",100);
+define("TIME_TO_SLEEP_MIN",450);
 define("TIME_TO_SLEEP_MAX",1200);
 define("USER_AGENT","Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+(KHTML, like Gecko) Version/3.0 Mobile/1C10 Safari/419.3");
 define("FOURSQUARE_USERNAME","");
@@ -68,3 +67,4 @@ foreach ($venues as $venue) {
 	sleep(rand(TIME_TO_SLEEP_MIN,TIME_TO_SLEEP_MAX));
 }
 ?>
+
